@@ -1,0 +1,68 @@
+# Config format schema number
+format_version: 4
+
+###################
+## Model options
+model_params:
+  model_architecture: "cylinder_asym"
+
+  output_shape:
+    - 960 
+    - 480
+    - 32
+
+  fea_dim: 9
+  out_fea_dim: 256 #256
+  num_class: 23 #20
+  num_input_features: 32 
+  use_norm: True
+  init_size: 32 
+
+
+###################
+## Dataset options
+dataset_params:
+  dataset_type: "cylinder_dataset"
+  pc_dataset_type: "Waymo"
+  ignore_label: 0
+  return_test: False
+  fixed_volume_space: True
+  label_mapping: "./config/label_mapping/waymo.yaml"
+  max_volume_space:
+    - 75 
+    - 3.1415926
+    - 4
+  min_volume_space:
+    - 0
+    - -3.1415926
+    - -2
+
+
+###################
+## Data_loader options
+train_data_loader:
+  data_path: "/mnt/lustre/houyuenan.vendor/semantickitti/Cylinder3D/data/dataset/sequences/"
+  imageset: "train"
+  return_ref: True
+  batch_size: 2 
+  shuffle: True
+  num_workers: 24 
+
+val_data_loader:
+  data_path: "/mnt/lustre/houyuenan.vendor/semantickitti/Cylinder3D/data/dataset/sequences/"
+  imageset: "val"
+  return_ref: True
+  batch_size: 2 
+  shuffle: False
+  num_workers: 12 
+
+
+###################
+## Train params
+train_params:
+  model_load_path: "./model_load_dir/model_waymo.pt" 
+  model_save_path: "./model_save_dir/model_tmp_waymo.pt" 
+  checkpoint_every_n_steps: 9500 #4599
+  max_num_epochs: 20 #30
+  eval_every_n_steps: 15000
+  learning_rate: 0.003 #1

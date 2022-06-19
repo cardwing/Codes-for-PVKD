@@ -1,0 +1,70 @@
+# Config format schema number
+format_version: 4
+
+###################
+## Model options
+model_params:
+  model_architecture: "cylinder_asym"
+
+  output_shape:
+    - 480
+    - 360
+    - 32
+
+  fea_dim: 9
+  out_fea_dim: 256
+  num_class: 26 #20
+  num_input_features: 16 #32 #16
+  use_norm: True
+  init_size: 16 #32
+
+
+###################
+## Dataset options
+dataset_params:
+  dataset_type: "cylinder_dataset"
+  pc_dataset_type: "SemKITTI_sk_multiscan"
+  ignore_label: 0
+  return_test: True #False
+  fixed_volume_space: True
+  label_mapping: "./config/label_mapping/semantic-kitti-multiscan.yaml"
+  max_volume_space:
+    - 50
+    - 3.1415926
+    - 2
+  min_volume_space:
+    - 0
+    - -3.1415926
+    - -4
+
+
+###################
+## Data_loader options
+train_data_loader:
+  data_path: "/nvme/yuenan/semantickitti_dataset/sequences/"
+  imageset: "train"
+  return_ref: True
+  batch_size: 2 #2
+  shuffle: True
+  num_workers: 12 #4
+
+val_data_loader:
+  data_path: "/nvme/yuenan/semantickitti_dataset/sequences/"
+  imageset: "test" #"val"
+  return_ref: True
+  batch_size: 1 #2
+  shuffle: False
+  num_workers: 12 #4
+
+
+
+
+###################
+## Train params
+train_params:
+  model_load_path: "./model_load_dir/model_fake_50_ms_val_ft.pt"
+  model_save_path: "./model_save_dir/model_full_ms.pt"
+  checkpoint_every_n_steps: 4599
+  max_num_epochs: 40 #40
+  eval_every_n_steps: 10000 #4599
+  learning_rate: 0.0015 #1
