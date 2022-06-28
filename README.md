@@ -92,7 +92,7 @@ zip -r out_cyl.zip sequences/
 CUDA_VISIBLE_DEVICES=0 python -u train_cyl_sem.py
 ```
 
-Remember to change the `imageset` of `val_data_loader` to `val` in `semantickitti.yaml`. Currently, we only support vanilla training.
+Remember to change the `imageset` of `val_data_loader` to `val`, `return_test` of `dataset_params` to `False` in `semantickitti.yaml`. Currently, we only support vanilla training.
 
 
 ## Performance
@@ -101,16 +101,17 @@ Remember to change the `imageset` of `val_data_loader` to `val` in `semantickitt
 
 |Model|Reported|Reproduced|Gain|Weight|
 |:---:|:---:|:---:|:---:|:---:|
-|SPVNAS|66.4%|--|--|--|
+|SPVNAS|66.4%|71.4%|**5.0%**|--|
+|Cylinder3D_1.5x|--|**72.4%**|--|[cyl_sem_1.5x_72_4.pt](https://drive.google.com/drive/folders/1LyWhVCqMzSVDe44c8ARDp8b94w1ct-tR?usp=sharing)|
 |Cylinder3D|68.9%|71.8%|**2.9%**|[cyl_sem_1.0x_71_8.pt](https://drive.google.com/drive/folders/1LyWhVCqMzSVDe44c8ARDp8b94w1ct-tR?usp=sharing)|
-|Cylinder3D_0.5x|71.2%|71.4%|0.2%|[cyl_sem_0.5x_71_2.pt](https://drive.google.com/drive/folders/1LyWhVCqMzSVDe44c8ARDp8b94w1ct-tR?usp=sharing)|
+|Cylinder3D_0.5x|71.2%|71.4%|0.2%|[cyl_sem_0.5x_71_4.pt](https://drive.google.com/drive/folders/1LyWhVCqMzSVDe44c8ARDp8b94w1ct-tR?usp=sharing)|
 
 2. SemanticKITTI test set (multi-scan):
 
 |Model|Reported|Reproduced|Gain|Weight|
 |:---:|:---:|:---:|:---:|:---:|
-|Cylinder3D|52.5%|--%|**--%**|--|
-|Cylinder3D_0.5x|58.2%|58.4%|--%|[cyl_sem_ms_0.5x_58_4.pt](https://drive.google.com/drive/folders/1LyWhVCqMzSVDe44c8ARDp8b94w1ct-tR?usp=sharing)|
+|Cylinder3D|52.5%|--|--|--|
+|Cylinder3D_0.5x|58.2%|58.4%|0.2%|[cyl_sem_ms_0.5x_58_4.pt](https://drive.google.com/drive/folders/1LyWhVCqMzSVDe44c8ARDp8b94w1ct-tR?usp=sharing)|
 
 3. Waymo test set:
 
@@ -124,7 +125,7 @@ Remember to change the `imageset` of `val_data_loader` to `val` in `semantickitt
 |Model|Reported|Reproduced|Gain|Weight|
 |:---:|:---:|:---:|:---:|:---:|
 |Cylinder3D|76.1%|--|--|--|
-|Cylinder3D_0.5x|76.0%|75.7%|-0.3%|[cyl_nusc_0.5x_75_7.pt](https://drive.google.com/drive/folders/1LyWhVCqMzSVDe44c8ARDp8b94w1ct-tR?usp=sharing)|
+|Cylinder3D_0.5x|76.0%|76.15%|0.15%|[cyl_nusc_0.5x_76_15.pt](https://drive.google.com/drive/folders/1LyWhVCqMzSVDe44c8ARDp8b94w1ct-tR?usp=sharing)|
 
 ## Citation
 If you use the codes, please cite the following publications:
