@@ -2,6 +2,20 @@ Point-to-Voxel Knowledge Distillation for LiDAR Semantic Segmentation (CVPR 2022
 
 Our model achieves state-of-the-art performance on three benchmarks, i.e., ranks **1st** in [Waymo 3D Semantic Segmentation Challenge](https://waymo.com/open/challenges/2022/3d-semantic-segmentation/) (the "Cylinder3D" and "Offboard_SemSeg" entities), ranks **1st** in [SemanticKITTI LiDAR Semantic Segmentation Challenge](https://competitions.codalab.org/competitions/20331#results) (single-scan, the "Point-Voxel-KD" entity), ranks **2nd** in [SemanticKITTI LiDAR Semantic Segmentation Challenge](https://competitions.codalab.org/competitions/20331#results) (multi-scan, the "PVKD" entity). Our trained model has been used in one NeurIPS 2022 submission! Do not hesitate to use our trained models!
 
+## News
+
+- **2022-7** We provide a trained model of [CENet](https://github.com/huixiancheng/CENet), a range-image-based LiDAR segmentation method. The reproduced performance is much higher than the reported value! 
+
+- **2022-6** Our method ranks **1st** in [SemanticKITTI LiDAR Semantic Segmentation Challenge](https://competitions.codalab.org/competitions/20331#results) (single-scan, the "Point-Voxel-KD" entity)
+<p align="center">
+   <img src="./img/semantickitti_single_scan.PNG" width="30%"> 
+</p>
+
+- **2022-5** Our method ranks **1st** in [Waymo 3D Semantic Segmentation Challenge](https://waymo.com/open/challenges/2022/3d-semantic-segmentation/) (the "Cylinder3D" and "Offboard_SemSeg" entities)
+<p align="center">
+   <img src="./img/waymo.PNG" width="30%"> 
+</p>
+
 ## Installation
 
 ### Requirements
@@ -105,6 +119,7 @@ Remember to change the `imageset` of `val_data_loader` to `val`, `return_test` o
 |Cylinder3D_1.5x|--|**72.4%**|--|[cyl_sem_1.5x_72_4.pt](https://drive.google.com/drive/folders/1LyWhVCqMzSVDe44c8ARDp8b94w1ct-tR?usp=sharing)|
 |Cylinder3D|68.9%|71.8%|**2.9%**|[cyl_sem_1.0x_71_8.pt](https://drive.google.com/drive/folders/1LyWhVCqMzSVDe44c8ARDp8b94w1ct-tR?usp=sharing)|
 |Cylinder3D_0.5x|71.2%|71.4%|0.2%|[cyl_sem_0.5x_71_4.pt](https://drive.google.com/drive/folders/1LyWhVCqMzSVDe44c8ARDp8b94w1ct-tR?usp=sharing)|
+|CENet_1.0x|64.7%|67.6%|2.9%|[CENet_64x512_67_6](https://drive.google.com/drive/folders/1LyWhVCqMzSVDe44c8ARDp8b94w1ct-tR?usp=sharing)|
 
 2. SemanticKITTI test set (multi-scan):
 
