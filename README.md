@@ -4,6 +4,8 @@ Our model achieves state-of-the-art performance on three benchmarks, i.e., ranks
 
 ## News
 
+- **2022-11** The distillation codes and some training tips will be released after CVPR DDL.
+
 - **2022-7** We provide a trained model of [CENet](https://github.com/huixiancheng/CENet), a range-image-based LiDAR segmentation method. The reproduced performance is much higher than the reported value! 
 
 - **2022-6** Our method ranks **1st** in [SemanticKITTI LiDAR Semantic Segmentation Challenge](https://competitions.codalab.org/competitions/20331#results) (single-scan, the "Point-Voxel-KD" entity)
