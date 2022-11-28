@@ -1,8 +1,10 @@
 Point-to-Voxel Knowledge Distillation for LiDAR Semantic Segmentation (CVPR 2022)
 
-Our model achieves state-of-the-art performance on three benchmarks, i.e., ranks **1st** in [Waymo 3D Semantic Segmentation Challenge](https://waymo.com/open/challenges/2022/3d-semantic-segmentation/) (the "Cylinder3D" and "Offboard_SemSeg" entities), ranks **1st** in [SemanticKITTI LiDAR Semantic Segmentation Challenge](https://competitions.codalab.org/competitions/20331#results) (single-scan, the "Point-Voxel-KD" entity), ranks **2nd** in [SemanticKITTI LiDAR Semantic Segmentation Challenge](https://competitions.codalab.org/competitions/20331#results) (multi-scan, the "PVKD" entity). Our trained model has been used in one NeurIPS 2022 submission! Do not hesitate to use our trained models!
+Our model achieves state-of-the-art performance on three benchmarks, i.e., ranks **1st** in [Waymo 3D Semantic Segmentation Challenge](https://waymo.com/open/challenges/2022/3d-semantic-segmentation/) (the "Cylinder3D" and "Offboard_SemSeg" entries, May 2022), ranks **1st** in [SemanticKITTI LiDAR Semantic Segmentation Challenge](https://competitions.codalab.org/competitions/20331#results) (single-scan, the "Point-Voxel-KD" entry, Jun 2022), ranks **2nd** in [SemanticKITTI LiDAR Semantic Segmentation Challenge](https://competitions.codalab.org/competitions/20331#results) (multi-scan, the "PVKD" entry, Dec 2021). Do not hesitate to use our trained models!
 
 ## News
+
+- **2022-11** [NEW:fire:] Some useful training tips have been provided.
 
 - **2022-11** The distillation codes and some training tips will be released after CVPR DDL.
 
@@ -111,6 +113,31 @@ CUDA_VISIBLE_DEVICES=0 python -u train_cyl_sem.py
 Remember to change the `imageset` of `val_data_loader` to `val`, `return_test` of `dataset_params` to `False` in `semantickitti.yaml`. Currently, we only support vanilla training.
 
 
+## Useful Training Tips
+1. Finetuning.
+
+You can finetune the model using both train and val sets as well as a smaller learning rate (1/3 or 1/4 of the original learning rate).
+
+2. Model ensemble. 
+
+You can use models of different epochs as an ensemble. Different models can also be taken as an ensemble, e.g., SPVCNN and Cylinder3D.
+
+3. Semi-supervised learning. 
+
+You can follow [GuidedContrast](https://arxiv.org/abs/2110.08188) to use pseudo labels of the test set to complement the original training set.
+
+4. More data augmentations. 
+
+You can use [LaserMix](https://arxiv.org/abs/2207.00026), [Instance Augmentation](https://github.com/edwardzhou130/Panoptic-PolarNet/blob/main/dataloader/instance_augmentation.py) and [PolarMix](https://arxiv.org/abs/2208.00223) to increase the diversity of training samples.
+
+5. Knowledge distillation (KD).
+
+You can refer to [CRD](https://github.com/HobbitLong/RepDistiller) to apply KD to boost the performance of LiDAR segmentation models. We will release a more efficient and effective version of the PVKD algorithm soon.
+
+6. Using more inputs.
+
+In addition to the (x, y, z), you can also use the intensity, range, azimuth, inclination and elongation as additional inputs. Remember to normalize these input signals if necessary. Tanh function is a good normalizer in some cases.
+
 ## Performance
 
 1. SemanticKITTI test set (single-scan):
@@ -145,9 +172,9 @@ Remember to change the `imageset` of `val_data_loader` to `val`, `return_test` o
 |Cylinder3D_0.5x|76.0%|76.15%|0.15%|[cyl_nusc_0.5x_76_15.pt](https://drive.google.com/drive/folders/1LyWhVCqMzSVDe44c8ARDp8b94w1ct-tR?usp=sharing)|
 
 ## Citation
-If you use the codes, please cite the following publications:
+If you use the codes, please consider citing the following publications:
 ```
-@inproceedings{Hou_2022_CVPR,
+@inproceedings{pvkd,
     title     = {Point-to-Voxel Knowledge Distillation for LiDAR Semantic Segmentation},
     author    = {Hou, Yuenan and Zhu, Xinge and Ma, Yuexin and Loy, Chen Change and Li, Yikang},
     booktitle = {IEEE Conference on Computer Vision and Pattern Recognition},
@@ -155,7 +182,7 @@ If you use the codes, please cite the following publications:
     year      = {2022},
 }
 
-@inproceedings{zhu2021cylindrical,
+@inproceedings{cylinder3d,
     title={Cylindrical and Asymmetrical 3D Convolution Networks for LiDAR Segmentation},
     author={Zhu, Xinge and Zhou, Hui and Wang, Tai and Hong, Fangzhou and Ma, Yuexin and Li, Wei and Li, Hongsheng and Lin, Dahua},
     booktitle={IEEE Conference on Computer Vision and Pattern Recognition},
@@ -163,8 +190,8 @@ If you use the codes, please cite the following publications:
     year={2021}
 }
 
-@article{zhu2021cylindrical-tpami,
-    title={Cylindrical and Asymmetrical 3D {C}onvolution {N}etworks for LiDAR-based Perception},
+@article{cylinder3d-tpami,
+    title={Cylindrical and Asymmetrical 3D Convolution Networks for LiDAR-based Perception},
     author={Zhu, Xinge and Zhou, Hui and Wang, Tai and Hong, Fangzhou and Li, Wei and Ma, Yuexin and Li, Hongsheng and Yang, Ruigang and Lin, Dahua},
     journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
     year={2021},
