@@ -1,6 +1,6 @@
 Point-to-Voxel Knowledge Distillation for LiDAR Semantic Segmentation (CVPR 2022)
 
-Our model achieves state-of-the-art performance on three benchmarks, i.e., ranks **1st** in [Waymo 3D Semantic Segmentation Challenge](https://waymo.com/open/challenges/2022/3d-semantic-segmentation/) (the "Cylinder3D" and "Offboard_SemSeg" entries, May 2022), ranks **1st** in [SemanticKITTI LiDAR Semantic Segmentation Challenge](https://competitions.codalab.org/competitions/20331#results) (single-scan, the "Point-Voxel-KD" entry, Jun 2022), ranks **2nd** in [SemanticKITTI LiDAR Semantic Segmentation Challenge](https://competitions.codalab.org/competitions/20331#results) (multi-scan, the "PVKD" entry, Dec 2021). Do not hesitate to use our trained models!
+Our model achieves state-of-the-art performance on three challenges, i.e., ranks **1st** in [Waymo 3D Semantic Segmentation Challenge](https://waymo.com/open/challenges/2022/3d-semantic-segmentation/) (the "Cylinder3D" and "Offboard_SemSeg" entries, May 2022), ranks **1st** in [SemanticKITTI LiDAR Semantic Segmentation Challenge](https://competitions.codalab.org/competitions/20331#results) (single-scan, the "Point-Voxel-KD" entry, Jun 2022), ranks **2nd** in [SemanticKITTI LiDAR Semantic Segmentation Challenge](https://competitions.codalab.org/competitions/20331#results) (multi-scan, the "PVKD" entry, Dec 2021). Do not hesitate to use our trained models!
 
 ## News
 
@@ -138,7 +138,21 @@ You can refer to [CRD](https://github.com/HobbitLong/RepDistiller) to apply KD t
 
 In addition to the (x, y, z), you can also use the intensity, range, azimuth, inclination and elongation as additional inputs. Remember to normalize these input signals if necessary. Tanh function is a good normalizer in some cases.
 
+7. Increasing the model size.
+
+You can either increase the width (more channels) or the depth (more layers) of the model to boost the performance.
+
+8. Test time augmentation (TTA).
+
+You can use more augmentations (flipping, rotation, scaling, translation) in TTA to boost the performance. A proper combination of them is vital to the final performance.
+
 ## Performance
+
+Abbreviation:
+
+cyl: Cylinder3D, sem: SemanticKITTI, nusc: nuScenes, ms: multi-scan task, tta: test-time augmentation,
+
+1.5x: channel expansion ratio, 72_4: performance (mIoU), 64x512: resolution of the range image
 
 1. SemanticKITTI test set (single-scan):
 
