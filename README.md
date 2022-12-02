@@ -124,7 +124,7 @@ You can use models of different epochs as an ensemble. Different models can also
 
 3. Semi-supervised learning. 
 
-You can follow [GuidedContrast](https://arxiv.org/abs/2110.08188) to use pseudo labels of the test set to complement the original training set.
+You can follow [GuidedContrast](https://arxiv.org/abs/2110.08188) to use pseudo labels of the test set to complement the original training set. (**DO NOT** use it in the supervised training. It can only be used in the semi-supervised setting to prove the value of the proposed semi-supervised algorithm.)
 
 4. More data augmentations. 
 
