@@ -159,7 +159,7 @@ def main(args):
 if __name__ == '__main__':
     # Training settings
     parser = argparse.ArgumentParser(description='')
-    parser.add_argument('-y', '--config_path', default='/content/drive/MyDrive/Colab_Notebooks/SJSU/IAS/Final_Project/Codes-for-PVKD/config/semantickitti.yaml')
+    parser.add_argument('-y', '--config_path', default='/content/drive/MyDrive/Colab_Notebooks/SJSU/IAS/Final_Project/PVKD/config/semantickitti.yaml')
     args = parser.parse_args()
 
     print(' '.join(sys.argv))

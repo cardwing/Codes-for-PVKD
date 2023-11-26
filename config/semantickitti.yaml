@@ -27,7 +27,7 @@ dataset_params:
   ignore_label: 0
   return_test: True
   fixed_volume_space: True
-  label_mapping: "/content/drive/MyDrive/Colab_Notebooks/SJSU/IAS/Final_Project/Codes-for-PVKD/config/label_mapping/semantic-kitti.yaml"
+  label_mapping: "/content/drive/MyDrive/Colab_Notebooks/SJSU/IAS/Final_Project/PVKD/config/label_mapping/semantic-kitti.yaml"
   max_volume_space:
     - 50
     - 3.1415926
@@ -60,8 +60,8 @@ val_data_loader:
 ###################
 ## Train params
 train_params:
-  model_load_path: "/content/drive/MyDrive/Colab_Notebooks/SJSU/IAS/Final_Project/Codes-for-PVKD/model_load_dir/my_run_e5_lr_02_00_batch3.pt"
-  model_save_path: "/content/drive/MyDrive/Colab_Notebooks/SJSU/IAS/Final_Project/Codes-for-PVKD/model_save_dir/my_run_e5_lr_02_00_batch3.pt"
+  model_load_path: "/content/drive/MyDrive/Colab_Notebooks/SJSU/IAS/Final_Project/PVKD/model_load_dir/my_run_e5_lr_02_00_batch3.pt"
+  model_save_path: "/content/drive/MyDrive/Colab_Notebooks/SJSU/IAS/Final_Project/PVKD/model_save_dir/my_run_e5_lr_02_00_batch3.pt"
   checkpoint_every_n_steps: 4599
   max_num_epochs: 5 #40
   eval_every_n_steps: 5000 #4599
