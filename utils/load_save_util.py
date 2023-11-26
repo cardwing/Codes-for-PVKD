@@ -12,6 +12,7 @@ def load_checkpoint(model_load_path, model):
     part_load = {}
     match_size = 0
     nomatch_size = 0
+    # print("pre_weight -> ", pre_weight.keys())
     for k in pre_weight.keys():
         value = pre_weight[k]
         if k in my_model_dict and my_model_dict[k].shape == value.shape:
@@ -45,6 +46,9 @@ def load_checkpoint(model_load_path, model):
                     value = value1
             nomatch_size += 1
             part_load[k] = value
+            # print("k -> ", k)
+            # print("my_model_dict[k] -> ", my_model_dict[k])
+            # print("value -> ", value)
             assert my_model_dict[k].shape == value.shape
             #print("model shape:{}, pre shape:{}".format(str(my_model_dict[k].shape), str(value.shape)))
 

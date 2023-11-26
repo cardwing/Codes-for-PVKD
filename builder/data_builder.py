@@ -29,6 +29,8 @@ def build(dataset_config,
         from nuscenes import NuScenes
         nusc = NuScenes(version='v1.0-trainval', dataroot=data_path, verbose=True)
 
+    print("data_path -> ", data_path)
+    print("train_imageset -> ", train_imageset)
     train_pt_dataset = SemKITTI(data_path, imageset=train_imageset,
                                 return_ref=train_ref, label_mapping=label_mapping, nusc=nusc)
     val_pt_dataset = SemKITTI(data_path, imageset=val_imageset,
