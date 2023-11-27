@@ -70,7 +70,7 @@ def main(args):
                                                                   grid_size=grid_size,
                                                                   use_tta=True)
 
-    output_path = 'out_cyl/test'
+    output_path = '/content/drive/MyDrive/Colab_Notebooks/SJSU/IAS/Final_Project/PVKD/out_cyl/test'
     voting_num = 4
 
     if True:
